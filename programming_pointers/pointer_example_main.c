@@ -80,7 +80,7 @@ int main(void)
     // Example 4: having fun with pointers and arithmetic operations on them
     // You can also learn about Big-endian little-endian. Read about it here: https://en.wikipedia.org/wiki/Endianness Which one is MSP432? Big or little endian?
     unsigned int N = 0x11223344;
-    unsigned char *Nptr = &N;  //There will be a warning here. Why?
+    unsigned char *Nptr = &N;  //There will be a warning here. Why? fixed: unsigned char *Nptr = (unsigned char*)&N;Q4 Typecasting the &N (address of N) which is a pointer to an unsigned integer to a pointer to an unsigned char removes the warning. It is done as follows:
     printf("%02x\n",*Nptr);
 
     for (i = 0; i<4; i++)
